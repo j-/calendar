@@ -12,7 +12,7 @@ export const SvgCalendarPure: FC<SvgCalendarPureProps> = ({
   const id = `SvgCalendarPure-${useId()}`;
   const idPast = `${id}-past`;
   const idFuture = `${id}-future`;
-  
+
   const colCount = 14;
   const rowCount = Math.ceil(daysInYear / colCount);
   const size = 20;
@@ -20,15 +20,11 @@ export const SvgCalendarPure: FC<SvgCalendarPureProps> = ({
   return (
     <svg width={colCount * size} height={rowCount * size}>
       <defs>
-        <symbol id={idPast}>
-          <g width={16} height={16}>
-            <path d="M2 2 14 14M2 14 14 2" />
-          </g>
+        <symbol id={idPast} viewBox="0 0 16 16">
+          <path d="M2 2 14 14M2 14 14 2" />
         </symbol>
-        <symbol id={idFuture}>
-          <g width={16} height={16} opacity={0.5}>
-            <circle cx={8} cy={8} r={2} />
-          </g>
+        <symbol id={idFuture} viewBox="0 0 16 16">
+          <circle cx={8} cy={8} r={2} opacity={0.5} />
         </symbol>
       </defs>
 
@@ -37,7 +33,7 @@ export const SvgCalendarPure: FC<SvgCalendarPureProps> = ({
           const i = row * colCount + col;
 
           if (i >= daysInYear) return null;
-          
+
           const isPast = i < dayOfYear;
 
           return (
